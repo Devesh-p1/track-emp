@@ -69,4 +69,74 @@ inquirer
                 }
                 );
             });
+        } else if (data.option === 'role') {
+            inquirer
+            .prompt([{
+                type: 'input',
+                message: 'what typa title of the role you tryna add ?',
+                name: 'option'
+            },{
+                type: 'input',
+                message: 'how much this foo making ?',
+                name: 'amount'
+            },{
+                type: 'input',
+                message: 'where this foo working at ?',
+                name: 'departmentName',
+            }])
+            .then(function(data) {
+                console.log(data);
+                connection.connect();
+
+                connection.query(
+                'insert into role set fam ?',
+                {
+                    title: data.option, salary: data.amount, department_id: data.departmentName
+                },
+                function(error, hotdog, feilds) {
+                    if (error) throw error;
+                    console.log(hotdog);
+                }
+                );
+            });
+        }
+        else if (data.option === 'employee') {
+            inquirer
+            .prompt([
+                {
+                    type: 'input',
+                    message: 'what the mans first name?',
+                    name: 'first'
+                },
+                {
+                    type: 'input',
+                    message: 'whats the mans last name?',
+                    name: 'last'
+                },
+                {
+                    type: 'input',
+                    message: 'whats this crodie do?',
+                    name: 'role'
+                },
+                {
+                    type: 'input',
+                    message: 'who run this shit?',
+                    name: 'bigMan'
+                }
+            ])
+            .then(function(data) {
+                console.log(data);
+                connection.connect();
+
+                connection.query(
+                    'insert into employee set',
+                    {
+                        first: data,first, last: data.role, bigMan: data.bigMan
+                    },
+                    function(error, hotdog, fields) {
+                        if (error) throw error;
+                        console.log(hotdog);
+                    }
+                );
+            });
         }
