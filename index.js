@@ -139,4 +139,80 @@ inquirer
                     }
                 );
             });
-        }
+        } else if (data.option === 'view') {
+            inquirer
+            .prompt({
+                type: 'list',
+                message: 'what you tryna see fam?',
+                name: 'option',
+                choices: ['department', 'role', 'employee']
+            })
+            .then(function(data) {
+                console.log(data);
+                if (data.option === 'department') {
+                    connection.query(
+                        'select from department',
+                        {
+                            name: data.option
+                        },
+                        function(error, hotdog, feilds) {
+                            if (error) throw error;
+                            console.log(hotdog);
+                        }
+                    );
+                }
+                else if (data.option === 'role') {
+                    connection.query(
+                        'select that role',
+                        {
+                            name: data.option
+                        },
+                        function(error, hotdog) {
+                            if (error) throw error;
+                            console.log(hotdog);
+                        }
+                    );
+                }
+                else if (data.option === "employee") {
+                    connection.query(
+                      "SELECT * FROM employee",
+                      { name: data.option },
+                      function(error, hotdog, fields) {
+                        if (error) throw error;
+                        console.log(hotdog);
+                      }
+                    );
+                  }
+        
+                });
+            } else if (data.option === "remove") {
+              inquirer
+                .prompt({
+                  type: "list",
+                  message: "Where do you want to remove from?",
+                  name: "option",
+                  choices: ["department", "role", "employee"]
+                })
+                .then(function(data) {
+                  console.log(data);
+                  if (data.option === "department") {
+                    inquirer
+                      .prompt({
+                        type: "input",
+                        message: "What is the name of the department you want to remove?",
+                        name: "option"
+                      })
+                      .then(function(data) {
+                        console.log(data);
+                        connection.connect();
+        
+                        connection.query(
+                          "DELETE FROM department WHERE ?",
+                          { name: data.option },
+                          function(error, hotdog, fields) {
+                            if (error) throw error;
+                            console.log(hotdog);
+                          }
+                        );
+                      });
+                  }
