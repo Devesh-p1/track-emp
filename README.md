@@ -16,7 +16,6 @@ stores emplyee information into a sql database
 
 * [Tests](#tests)
 
-* [Questions](#questions)
 
 ## Installation
 
@@ -45,3 +44,5 @@ To run tests, run the following command:
 ```
 N/A
 ```
+
+[user video](https://drive.google.com/file/d/1YnsxZldVW5uzUVHL8SlK5qFYp2c9Uj_S/view?usp=sharing "user video")

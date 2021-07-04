@@ -1,0 +1,23 @@
+{
+  "name": "track-emp",
+  "version": "1.0.0",
+  "description": "stores emplyee information into a sql database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devesh-p1/track-emp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devesh-p1/track-emp/issues"
+  },
+  "homepage": "https://github.com/Devesh-p1/track-emp#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1",
+    "mysql": "^2.18.1"
+  }
+}
