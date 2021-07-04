@@ -215,4 +215,49 @@ inquirer
                           }
                         );
                       });
+                  } else if (data.option === "role") {
+                    inquirer
+                      .prompt({
+                        type: "input",
+                        message:
+                          "What is the title of the role you want to remove?",
+                        name: "option"
+                      })
+                      .then(function(data) {
+                        console.log(data);
+                        connection.connect();
+        
+                        connection.query(
+                          "DELETE FROM role WHERE ?",
+                          { title: data.option },
+                          function(error, hotdog, fields) {
+                            if (error) throw error;
+                            console.log(hotdog);
+                          }
+                        );
+                      });
                   }
+                  else if (data.option === "employee") {
+                    inquirer
+                      .prompt({
+                        type: "input",
+                        message:"What is the id name of the employee you want to remove?",
+                        name: "option"
+                      })
+                      .then(function(data) {
+                        console.log(data);
+                        connection.connect();
+        
+                        connection.query(
+                          "DELETE FROM employee WHERE ?",
+                          { id: data.option },
+                          function(error, hotdog, fields) {
+                            if (error) throw error;
+                            console.log(hotdog);
+                          }
+                        );
+            });
+        }
+    });
+    }
+    });
